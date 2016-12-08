@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function bubbleSort(arr) {
+        for (var i = 0; i < arr.length - 1; i++) {
+          for (var j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+            }
+          }
+        }
+        return arr;
+      }
+
+      php
+      function quickSort(arr) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+        let leftArr = [];
+        let rightArr = [];
+        let q = arr[0];
+        for (let i = 1; i < arr.length; i ++){
+          if (arr[i] > q) {
+            rightArr.push(arr[i]);
+          } else{
+            leftArr.push(arr[i]);
+          }
+        }
+        return [].concat(quickSort(leftArr),[q],quickSort(rightArr));
+      }
+      var sb = [5,4,6,2,1,3,8,9,7,0];
+      var db = quickSort(sb);
+      console.log(sb);
+      console.log(db);
+    </script>
+  </body>
+</html>
